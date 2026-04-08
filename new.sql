@@ -146,7 +146,12 @@ SELECT DISTINCT  department FROM Worker;  -- gives 4 differnet department that a
 
 SELECT DISTINCT salary, department FROM Worker;
 
+-- **************************************************************************************************************************************************
 
+-- GROUP BY (always used with a aggregator if aggreagtor is not used it will work as DISTINCt and select next and Gropp by shouldbe also same check below )
 
+SELECT department, COUNT(*) FROM Worker GROUP BY department;    -- department will be the group and we use aggreagtion of count(*) meaning each department has how many total entryies
+
+SELECT department, SUM(salary) FROM Worker GROUP BY department;  -- department will be the group and we use aggreagtion of SUM(salary) meaning each department has total how much salary
 
 
