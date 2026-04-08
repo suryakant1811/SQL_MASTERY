@@ -23,6 +23,7 @@ CREATE TABLE Worker (
   salary INT,
   joining_date DATETIME,
   department VARCHAR(50)
+--    PRIMARY KEY(worker_id) can write this which is a good approch insted writing it next to the id 
 );
 
 
@@ -40,6 +41,9 @@ CREATE TABLE Title (
   affected_from DATETIME,
   FOREIGN KEY (worker_ref_id) REFERENCES Worker(worker_id)
 );
+
+-- can add  a check constarain in a attribute to give a certain condiftion as we have created slary add a constrain as CHECK (salary > 0) if this conditon fail while inserting the  values then it will not added
+-- we have a default contarain as we can add a attribute as role and add this constain DEFAULT 'STUDENT' if you dont give any value to the attribute it will ba taken from here
 
 
 INSERT INTO Worker VALUES
@@ -79,6 +83,9 @@ INSERT INTO Title VALUES
 (8, 'Developer', '2021-11-11'),
 (9, 'HR Manager', '2020-04-05'),
 (10, 'Director', '2015-12-01');
+
+
+
 
 -- lcase ucase for upper and lower cases tranform select lcase("fGdeTEf") 
 
@@ -153,5 +160,18 @@ SELECT DISTINCT salary, department FROM Worker;
 SELECT department, COUNT(*) FROM Worker GROUP BY department;    -- department will be the group and we use aggreagtion of count(*) meaning each department has how many total entryies
 
 SELECT department, SUM(salary) FROM Worker GROUP BY department;  -- department will be the group and we use aggreagtion of SUM(salary) meaning each department has total how much salary
+
+
+-- EXECUTION ORDER IN SQL: FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY
+
+
+--HAVING (workes after GROUP By to add any filter in the GROUP By )
+
+SELECT department, sum(salary)  FROM Worker GROUP BY department;  -- shows sum of total salaries for each department and gives 4 departmenr with total salary next to it now you wanted to add some condition you uses this as in below command 
+
+SELECT department, sum(salary)  FROM Worker GROUP BY department HAVING SUM(SALARY) > 180000 ;   
+
+-- Worker table → split into departments → Each department → mini table → HAVING → filters those mini tables
+
 
 
