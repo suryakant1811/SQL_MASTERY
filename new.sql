@@ -176,18 +176,19 @@ SELECT department, sum(salary)  FROM Worker GROUP BY department HAVING SUM(SALAR
 
 -- ************************************************************************************************************************************************************
 
--- ALTER(to change in existing) (altering in pants existing but we need to do some changes)  --ADD, --MODIFY, --CHANGE, --DROP 
+-- ALTER(to change in existing) (altering in pants existing but we need to do some changes)  --ADD, --MODIFY, --CHANGE, --DROP,  --RENAME 
 -- Add column Modify column Delete column Add/remove constraints Rename table/column  
 
-ALTER TABLE Worker add age INT; -- age will be added with value NULL in each  to insert it in we will use other thing (update) and by giving , we can add mutilple attributes 
-
-ALTER TABLE Worker MODIFY age BIGINT; -- age datatype changes (MODIFY USED TO CAHNEG THE DATATYPE) Existing data must fit new type cant do int to varchar
+ALTER TABLE Worker ADD COLUMN age INT; -- age will be added with value NULL in each  to insert it in we will use other thing (update) and by giving , we can add mutilple attributes 
+ALTER TABLE Worker MODIFY COLUMN age BIGINT  -- column is optional you can add or not not a problem.
+ALTER TABLE Worker MODIFY  age BIGINT; -- age datatype changes (MODIFY USED TO CAHNEG THE DATATYPE) Existing data must fit new type cant do int to varchar
 
 ALTER TABLE Worker CHANGE age ages INT;   -- change the cloumn name and its datatype at the same time 
 
 ALTER TABLE Worker DROP ages;  -- remove the column delet parmananetly 
 
 ALTER TABLE Worker RENAME TO Employees; -- change table name
+ALTER TABLE Worker RENAME first_name TO f_name;  --change column name 
 
 ALTER TABLE Worker ADD PRIMARY KEY (worker_id); --add primary key
 ALTER TABLE Worker DROP PRIMARY KEY;
@@ -197,11 +198,15 @@ ALTER TABLE Worker DROP unique_email;
 
 
 ALTER TABLE Bonus ADD CONSTRAINT fk_worker
-ALTER TABLE Bonus DROP FOREIGN KEY fk_worker;
-
 FOREIGN KEY (worker_ref_id) REFERENCES Worker(worker_id);
 
+ALTER TABLE Bonus DROP FOREIGN KEY fk_worker;
+
 -- ************************************************************************************************************************************************************
+
+-- DML == command used to modify the data of table 
+
+
 
 
 
