@@ -42,8 +42,11 @@ CREATE TABLE Title (
   FOREIGN KEY (worker_ref_id) REFERENCES Worker(worker_id)
 );
 
--- can add  a check constarain in a attribute to give a certain condiftion as we have created slary add a constrain as CHECK (salary > 0) if this conditon fail while inserting the  values then it will not added
--- we have a default contarain as we can add a attribute as role and add this constain DEFAULT 'STUDENT' if you dont give any value to the attribute it will ba taken from here
+-- can add  a "check" constarain in a attribute to give a certain condiftion as we have created slary add a constrain as CHECK (salary > 0) if this conditon fail while inserting the  values then it will not added
+-- we have a "default" contarain as we can add a attribute as role and add this constain DEFAULT 'STUDENT' if you dont give any value to the attribute it will ba taken from here
+-- "Primary key" is used for identcation and filterning and deleteing things, inserting things manipulating things, should be unique but cannot be null;
+-- "Unique key" should be unique but can be null
+-- "NOT NULL" this attribute tell that this field should not be null
 
 
 INSERT INTO Worker VALUES
@@ -83,8 +86,6 @@ INSERT INTO Title VALUES
 (8, 'Developer', '2021-11-11'),
 (9, 'HR Manager', '2020-04-05'),
 (10, 'Director', '2015-12-01');
-
-
 
 
 -- lcase ucase for upper and lower cases tranform select lcase("fGdeTEf") 
@@ -173,5 +174,6 @@ SELECT department, sum(salary)  FROM Worker GROUP BY department HAVING SUM(SALAR
 
 -- Worker table → split into departments → Each department → mini table → HAVING → filters those mini tables
 
+-- ************************************************************************************************************************************************************
 
 
