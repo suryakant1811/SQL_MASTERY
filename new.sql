@@ -227,12 +227,21 @@ select w.worker_id,  w.first_name, w.last_name, w.department, t.worker_title,  t
 select w.worker_id, w.first_name, w.last_name, b.bonus_amt from Worker as w left join Bonus as b on w.worker_id = b.worker_ref_id where bonus_amt IS NULL;
 
 --added three table and created a new colums from the existing colums
-select w.worker_id, w.first_name, w.last_name, w.department, b.bonus_amt, (w.salary + b.bonus_amt) as total_salary  ,t.worker_title from Worker as w left join Bonus as b on w.worker_id = b.worker_ref_id left join Title as t on w.w
-orker_id = t.worker_ref_id;
+select w.worker_id, w.first_name, w.last_name, w.department, b.bonus_amt, (w.salary + b.bonus_amt) as total_salary  ,t.worker_title from Worker as w left join Bonus as b on w.worker_id = b.worker_ref_id left join Title as t on 
+w.worker_id = t.worker_ref_id;
 
 select w.first_name, w.last_name, b.bonus_amt from Worker as w join Bonus as b on w.worker_id = b.worker_ref_id order by bonus_amt  DESC LIMIT  1 OFFSET 1 ; --max second salary bonus amt name 2 table join
 
 
+-- ************************************************************************************************************************************************************
+
+-- SQL VIEW: defining/creating a custom virtual table and allow user to see only what we added during view creation
+
+CREATE VIEW CUSTOM_VIEW AS SELECT first_name, salary  FROM Worker;
+
+select * from CUSTOM_VIEW;
+
+drop view CUSTOM_VIEW
 
 
 
