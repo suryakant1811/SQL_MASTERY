@@ -207,6 +207,31 @@ ALTER TABLE Bonus DROP FOREIGN KEY fk_worker;
 -- DML == command used to modify the data of table 
 
 
+-- insert command already done -- UPDATE to update existing thing -- DELETE to delete column -- REPLACE
+INSERT INTO Worker VALUE (1, "anil")
+UPDATE Worker SET salary = salary + 5000 
+DELETE FROM Worker WHERE worker_id = 1;
+REPLACE INTO Worker VALUE (1, "anil")  -- 1 is primary key if primary key is not present it will add if present then value gets updated 
+
+-- ************************************************************************************************************************************************************
+
+-- JOINS
+
+SELECT * FROM Worker AS w  INNER JOIN Bonus AS b ON w.worker_id = b.worker_ref_id;
+
+-- if ALIAS (AS) is used then only that should be used in intrire query
+SELECT w.worker_id, w.first_name, w.last_name, b.bonus_amt FROM Worker AS w JOIN Bonus AS b ON w.worker_id = b.worker_ref_id;   
+
+-- left join   all the content from left side table and matching thing from the right side table (comman)
+select w.worker_id,  w.first_name, w.last_name, w.department, t.worker_title,  t.affected_from  from Worker as w join  Title as t on w.worker_id = t.worker_ref_id; 
+select w.worker_id, w.first_name, w.last_name, b.bonus_amt from Worker as w left join Bonus as b on w.worker_id = b.worker_ref_id where bonus_amt IS NULL;
+
+--added three table and created a new colums from the existing colums 
+select w.worker_id, w.first_name, w.last_name, w.department, b.bonus_amt, (w.salary + b.bonus_amt) as total_salary  ,t.worker_title from Worker as w left join Bonus as b on w.worker_id = b.worker_ref_id left join Title as t on w.w
+orker_id = t.worker_ref_id;
+
+
+
 
 
 
