@@ -243,7 +243,9 @@ select * from CUSTOM_VIEW;
 
 drop view CUSTOM_VIEW
 
-
+-- *************************************************************************************************************************************************************
+-- CONCAT (x,y) added x and y from two different columns  into single with some new name using alias(as)
+select concat(first_name, " ", last_name) as full_name from patients;
 
 
 
