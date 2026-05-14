@@ -275,5 +275,7 @@ select
  --  UNION vs UNION ALL
     -- UNION     → removes duplicates
     -- UNION ALL → keeps duplicates (faster)
-
+ -- WHERE VS HAVING
+   -- WHERE = filters rows (before grouping)
+   -- HAVING = filters groups (after grouping)
 
