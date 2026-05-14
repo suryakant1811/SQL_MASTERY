@@ -264,6 +264,16 @@ select
     ( select  count(*)  from patients where gender = 'M' )as male_count , ( select  count(*) from patients where gender = 'F' )as female_count
   
 
+-- UNION 
+    -- UNION combines results of two SELECT queries into one output table. 
+   -- condition
+        -- Both SELECT queries must have:
+        -- same number of columns
+        -- compatible data types
+        -- same order of columns
 
+ --  UNION vs UNION ALL
+    -- UNION     → removes duplicates
+    -- UNION ALL → keeps duplicates (faster)
 
 
