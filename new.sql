@@ -278,6 +278,16 @@ select
  -- WHERE VS HAVING
    -- WHERE = filters rows (before grouping)
    -- HAVING = filters groups (after grouping)
+    
 -- UPPER LOWER
     SELECT UPPER(first_name) FROM patients;
+
+-- aggregate function
+    COUNT   → how many rows
+    SUM     → total of values
+    AVG     → average
+    MIN     → smallest value
+    MAX     → largest value
+
+
 
