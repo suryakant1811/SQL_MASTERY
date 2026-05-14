@@ -250,4 +250,10 @@ select concat(first_name, " ", last_name) as full_name from patients;
 -- to get the year month to get month and same for day
 SELECT YEAR('1963-02-12');
 
+-- to get length of anythiong in between as above
 LENGTH(first_name) >= 6;
+
+-- orderby doeestn use AND
+order by length(first_name) asc  , first_name asc
+
+
